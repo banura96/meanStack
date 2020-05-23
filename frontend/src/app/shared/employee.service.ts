@@ -22,11 +22,14 @@ baseURL = "http://localhost:3000/employees";
   }
 
   putEmployee(emp : Employee){
-    return this.http.put(this.baseURL + '/${emp._id}', emp);
+    return this.http.put(this.baseURL + '/' + emp._id,emp);
   }
 
   empDelete(_id:string){
-    return this.http.delete(this.baseURL + '/${_id}');
+    console.log(_id)
+
+    let url = new URL( this.baseURL + '/' + _id)
+    return this.http.delete(url.toString());
   }
 
 

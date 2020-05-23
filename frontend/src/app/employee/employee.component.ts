@@ -40,7 +40,7 @@ export class EmployeeComponent implements OnInit {
         this.empList();
 
       });
-      M.toast({html: 'rejisterderd successfully',classes:'rounded'});
+      M.toast({html: 'registered successfully',classes:'rounded'});
 
 
     }
@@ -68,16 +68,15 @@ export class EmployeeComponent implements OnInit {
   }
 
   onDelete(id:string,form:NgForm){
-
       if(confirm("Are you sure to delete that record?")==true){
         this.empservice.empDelete(id).subscribe((res)=>{
           this.empList();
           this.resetForm(form);
 
         });
-
+        M.toast({html: 'Delete successfully',classes:'rounded'});
       }
-      M.toast({html: 'Delete successfully',classes:'rounded'});
+
   }
 
 }
